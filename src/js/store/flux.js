@@ -1,44 +1,62 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
+			contacts: [],
+			contact: {},
+			onDelete: false
+		}
+		
 		},
 		actions: {
-			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
+		createContact: (fullName, emailAdress, address, phoneNumber) => {
+			fetch ('https://playground.4geeks.com/apis/fake/contact/',
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
 			},
-			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
+			body: JSON.stringify({
+				'full_name': fullName,
+				'email': emailAdress,
+				'agenda_slug': 'Carla',
+				'address': 'address',
+				'phone': phoneNumber
+			}))
+			.then(response => response.jason())
+			.then(data=> console.log(data))
+			.catch(error => console.log('Error',error));
+		},
+		getContacts: () => {
+			fetch ('https://playground.4geeks.com/apis/fake/contact/agenda/Carla',
+			.then(response => response.jason())
+			.then(data=>{ setStore{{ contacts: data}}})
+			.catch(error => console.log('Error',error));
+		)};
+
+		getSingleContacts: (id) => {
+			fetch ('https://playground.4geeks.com/apis//fake/contact/${id}',
+			.then(response => response.jason())
+			.then(data=> setStore(contact: data))
+			.catch(error => console.log('Error',error));
+		)};
+
+		editContact: (fullName, emailAdress, address, phoneNumber) => {
+			fetch ('https://playground.4geeks.com/apis/fake/contact/$id',
+			method: 'PUT',
+			headers: {
+				'Content-Type': 'application/json'
 			},
-			changeColor: (index, color) => {
-				//get the store
-				const store = getStore();
-
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
-
-				//reset the global store
-				setStore({ demo: demo });
-			}
-		}
+			body: JSON.stringify({
+				'full_name': fullName,
+				'email': emailAdress,
+				'agenda_slug': 'Carla',
+				'address': address,
+				'phone': phoneNumber
+			}))
+			.then(response => response.jason())
+			.then(data=> console.log(data))
+			.catch(error => console.log('Error',error));
+		}, 
+		},
 	};
 };
 

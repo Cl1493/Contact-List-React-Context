@@ -7,34 +7,53 @@ import "../../styles/demo.css";
 
 export const Demo = () => {
 	const { store, actions } = useContext(Context);
+	const [fullName, setFullName] = useState('');
+	const [emailAdress, setEmailAdress] = useState('');
+	const [phoneNumber, setPhoneNumber] = useState('');
+	const [streetAddress, setStreetAddress] = useState('');
 
-	return (
+	useEffect(() => {
+		actions.getSingleContact(id);
+		setFullName(store.contact.full_name);
+		setEmailAdress (store.contact.email);
+		setPhoneNumber (store.contact.phone);
+		setStreetAddress(store.contact.address);
+	}),[];
+
+	const handleSubmit = e => {
+		e.preventDefault();
+		actions.createContact(fullName,emailAdress,streetAddress,phoneNumber);
+		console.log(fullname);
+		setFullName('')
+		setEmailAdress('')
+		setPhoneNumber('')
+		setStreetAddress('')
+
+	}
+
+	return 
 		<div className="container">
-			<ul className="list-group">
-				{store.demo.map((item, index) => {
-					return (
-						<li
-							key={index}
-							className="list-group-item d-flex justify-content-between"
-							style={{ background: item.background }}>
-							<Link to={"/single/" + index}>
-								<span>Link to: {item.title}</span>
-							</Link>
-							{// Conditional render example
-							// Check to see if the background is orange, if so, display the message
-							item.background === "orange" ? (
-								<p style={{ color: item.initial }}>
-									Check store/flux.js scroll to the actions to see the code
-								</p>
-							) : null}
-							<button className="btn btn-success" onClick={() => actions.changeColor(index, "orange")}>
-								Change Color
-							</button>
-						</li>
-					);
-				})}
-			</ul>
-			<br />
+			<form onSubmit={handleSubmit}>
+				<div className="mb-3">
+					<label for="exampleInputEmail1" className="form-label">Full name</label>
+					<input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+					value={fullName}>
+					onChange(e)
+				</div>
+				<div className="mb-3">
+					<label for="" className="form-label">Email</label>
+					<input type="email" className="form-control" id="exampleInputPassword1">
+				</div>
+				<div className="mb-3">
+					<label for="" className="form-label">EPhone number</label>
+					<input type="text" className="form-control" id="exampleInputPassword1">
+				</div>
+				<div className="mb-3">
+					<label for="" className="form-label">Address</label>
+					<input type="text" className="form-control" id="exampleInputPassword1">
+				</div>
+				<button type="submit" className="btn btn-primary">Submit</button>
+			</form>
 			<Link to="/">
 				<button className="btn btn-primary">Back home</button>
 			</Link>
