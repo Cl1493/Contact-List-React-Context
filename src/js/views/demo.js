@@ -15,60 +15,72 @@ export const Demo = () => {
 	useEffect(() => {
 		actions.getContacts();
 		setFullName(store.contact.full_name);
-		setEmailAdress (store.contact.email);
-		setPhoneNumber (store.contact.phone);
+		setEmailAdress(store.contact.email);
+		setPhoneNumber(store.contact.phone);
 		setStreetAddress(store.contact.address);
-	}),[];
+	}, []);
 
 	const handleSubmit = e => {
 		e.preventDefault();
-		actions.createContact(fullName,emailAdress,streetAddress,phoneNumber);
-		console.log(fullname);
+		actions.createContact(fullName, emailAdress, streetAddress, phoneNumber);
+		console.log(fullName);
 		setFullName('');
 		setEmailAdress('');
 		setPhoneNumber('');
 		setStreetAddress('');
-	}
+	};
 
-	return 
+	return (
 		<div className="container">
 			<form onSubmit={handleSubmit}>
 				<div className="mb-3">
 					<label htmlFor="exampleInputEmail1" className="form-label">Full name</label>
-					<input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-					value={fullName} 
-					onChange = {e => setFullName(e.target.value)}
-					placeholder="Escribe tu nombre completo"
+					<input 
+						type="text" 
+						className="form-control" 
+						id="exampleInputEmail1" 
+						aria-describedby="emailHelp"
+						value={fullName} 
+						onChange={e => setFullName(e.target.value)}
+						placeholder="Escribe tu nombre completo"
 					/>
-					
 				</div>
 				<div className="mb-3">
 					<label htmlFor="" className="form-label">Email</label>
-					<input type="email" className="form-control" id="exampleInputPassword1"
-					value={emailAdress} 
-					onChange = {e => setEmailAdress(e.target.value)}
-					placeholder="Escribe tu email"
+					<input 
+						type="email" 
+						className="form-control" 
+						id="exampleInputPassword1"
+						value={emailAdress} 
+						onChange={e => setEmailAdress(e.target.value)}
+						placeholder="Escribe tu email"
 					/>
 				</div>
 				<div className="mb-3">
 					<label htmlFor="" className="form-label">Phone number</label>
-					<input type="text" className="form-control" id="exampleInputPassword1"
-					value={phoneNumber} 
-					onChange = {e => setPhoneNumber(e.target.value)}
-					placeholder="Escribe tu número de telefono"
+					<input 
+						type="text" 
+						className="form-control" 
+						id="exampleInputPassword1"
+						value={phoneNumber} 
+						onChange={e => setPhoneNumber(e.target.value)}
+						placeholder="Escribe tu número de telefono"
 					/>
 				</div>
 				<div className="mb-3">
 					<label htmlFor="" className="form-label">Address</label>
-					<input type="text" className="form-control" id="exampleInputPassword1"
-					value={streetAddress} 
-					onChange = {e => setStreetAddress(e.target.value)}
-					placeholder="Escribe tu dirección"
+					<input 
+						type="text" 
+						className="form-control" 
+						id="exampleInputPassword1"
+						value={streetAddress} 
+						onChange={e => setStreetAddress(e.target.value)}
+						placeholder="Escribe tu dirección"
 					/>
 				</div>
 				<button type="submit" className="btn btn-primary">Submit</button>
 			</form>
-				<button onClick={() => console.log(fullName)}>Mostrar datos</button>
+			<button onClick={() => console.log(fullName)}>Mostrar datos</button>
 			<Link to="/">
 				<button className="btn btn-primary">Back home</button>
 			</Link>
