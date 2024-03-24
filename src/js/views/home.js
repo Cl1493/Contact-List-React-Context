@@ -1,14 +1,13 @@
-import React, { useEffect, useContext} from "react";
+import React, { useEffect, useContext} from "react"; 
 import "../../styles/home.css";
 import Card from "../component/card";
 import { Context } from "../store/appContext";
 
 export const Home = () => {
-	
+	const {store, actions} = useContext(Context);
 
 	useEffect(() => {
 		actions.getContacts();
-
 	},[]);
 
 	return (
@@ -20,7 +19,8 @@ export const Home = () => {
 				email={item.email} 
 				phoneNumber={item.phone} 
 				address={item.address}
+				id={item.id}
 				key={index}/>
-		)})}
+		);})}
 	</div>
 )};

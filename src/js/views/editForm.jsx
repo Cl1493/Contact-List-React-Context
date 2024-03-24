@@ -1,19 +1,20 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import { Context } from "../store/appContext";
 
 import "../../styles/demo.css";
 
-export const Demo = () => {
+export const EditForm = () => {
 	const { store, actions } = useContext(Context);
 	const [fullName, setFullName] = useState('');
 	const [emailAdress, setEmailAdress] = useState('');
 	const [phoneNumber, setPhoneNumber] = useState('');
 	const [streetAddress, setStreetAddress] = useState('');
+    const {id} = useParams();
 
 	useEffect(() => {
-		actions.getContacts();
+		actions.getSingleContact(id);
 		setFullName(store.contact.full_name);
 		setEmailAdress (store.contact.email);
 		setPhoneNumber (store.contact.phone);
@@ -22,7 +23,7 @@ export const Demo = () => {
 
 	const handleSubmit = e => {
 		e.preventDefault();
-		actions.createContact(fullName,emailAdress,streetAddress,phoneNumber);
+		actions.editContact(fullName,emailAdress,streetAddress,phoneNumber, id);
 		console.log(fullname);
 		setFullName('');
 		setEmailAdress('');
