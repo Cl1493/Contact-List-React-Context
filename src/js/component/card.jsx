@@ -18,9 +18,9 @@ const Card = (props) => {
         <p>{props.phoneNumber}</p>
         <p>{props.address}</p>
         <Link to={`/editForm/${props.id}`}>
-          <button>Editar</button>
+          <button className="position-relative m-3 py-2 px-4 btn btn-info" >Editar</button>
         </Link>
-        <button onClick={()=>{handleDelete()}}>Eliminar</button>
+        <button className="position-relative m-3 py-2 px-4 btn btn-info"  onClick={()=>{handleDelete()}}>Eliminar</button>
       </div>
     </div>
     )}

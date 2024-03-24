@@ -4,12 +4,13 @@ import ScrollToTop from "./component/scrollToTop";
 
 import { Home } from "./views/home";
 import { Demo } from "./views/demo";
-import { EditForm } from "./views/editForm";
+import { EditForm } from "./views/editForm.jsx";
 import { Single } from "./views/single";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
+import { Card } from "./component/card.jsx";
 
 //create your first component
 const Layout = () => {

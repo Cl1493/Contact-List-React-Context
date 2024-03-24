@@ -31,9 +31,9 @@ export const Demo = () => {
 	};
 
 	return (
-		<div className="container">
-			<form onSubmit={handleSubmit}>
-				<div className="mb-3">
+		<div className="container bg-success-subtle m-4 ">
+			<form onSubmit={handleSubmit} className=" ">
+				<div className="mb-3 ">
 					<label htmlFor="exampleInputEmail1" className="form-label">Full name</label>
 					<input 
 						type="text" 
@@ -78,11 +78,10 @@ export const Demo = () => {
 						placeholder="Escribe tu dirección"
 					/>
 				</div>
-				<button type="submit" className="btn btn-primary">Submit</button>
+				<button type="submit" className="btn btn-primary position-relative m-3 py-2 px-4 btn btn-info">Submit</button>
 			</form>
-			<button onClick={() => console.log(fullName)}>Mostrar datos</button>
 			<Link to="/">
-				<button className="btn btn-primary">Back home</button>
+				<button className="btn btn-primary position-relative py-2 px-4  m-3 btn btn-info">Back home</button>
 			</Link>
 		</div>
 	);
