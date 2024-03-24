@@ -19,7 +19,7 @@ export const EditForm = () => {
         setEmailAdress(store.contact.email);
         setPhoneNumber(store.contact.phone);
         setStreetAddress(store.contact.address);
-    }, [id]); // Asegúrate de incluir 'id' en la lista de dependencias para que se vuelva a cargar cuando cambie
+    }, [id]); 
 
     const handleSubmit = e => {
         e.preventDefault();
