@@ -7,6 +7,7 @@ const Card = (props) => {
   const {store, actions} =useContext(Context);
   const handleDelete = () => {
     actions.deleteContact(props.id);  
+  
   }    
 
     return (
@@ -27,7 +28,7 @@ const Card = (props) => {
           <Link to={`/editForm/${props.id}`}>
             <button className="position-relative m-3 py-2 px-4 btn btn-success" >Editar</button>
           </Link>
-          <button className="position-relative m-3 py-2 px-3 btn btn-success"  onClick={()=>{handleDelete()}}>Eliminar</button>
+          <button className="position-relative m-3 py-2 px-3 btn btn-success" onClick={()=>{handleDelete()}}>Eliminar</button>
       </div>
       
       </div>

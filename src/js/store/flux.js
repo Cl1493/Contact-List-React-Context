@@ -64,7 +64,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					method: 'DELETE',
 				})
 				.then(response => response.json())
-				.then(data => console.log(data))
+				.then(data => response.status === 201 {getActions.getContacts})
 				.catch(error => console.log('Error', error));
 			}
 		}
