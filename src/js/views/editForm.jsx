@@ -67,10 +67,10 @@ export const EditForm = () => {
                         placeholder="Escribe tu dirección"
                     />
                 </div>
-                <button type="submit" className="position-relative m-3 py-2 px-4 btn btn-info">Submit</button>
+                <button type="submit" className="position-relative m-3 btn btn-success">Submit</button>
             </form>
             <Link to="/">
-                <button className="position-relative m-3 py-2 px-4 btn btn-info">Back home</button>
+                <button className="position-relative m-3 btn btn-success">Back to contacts</button>
             </Link>
         </div>
     );

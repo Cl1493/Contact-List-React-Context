@@ -78,10 +78,10 @@ export const Demo = () => {
 						placeholder="Escribe tu dirección"
 					/>
 				</div>
-				<button type="submit" className="btn btn-primary position-relative m-3 py-2 px-4 btn btn-info">Submit</button>
+				<button type="submit" className="btn btn-success position-relative m-3">Submit</button>
 			</form>
 			<Link to="/">
-				<button className="btn btn-primary position-relative py-2 px-4  m-3 btn btn-info">Back home</button>
+				<button className="btn btn-success position-relative m-3">Back to contacts</button>
 			</Link>
 		</div>
 	);

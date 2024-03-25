@@ -13,8 +13,8 @@ export const Single = props => {
 			<hr className="my-4" />
 
 			<Link to="/">
-				<span className="btn btn-primary btn-lg" href="#" role="button">
-					Back home
+				<span className="btn btn-success d-grid gap-2" href="#" role="button">
+					Back to contacts
 				</span>
 			</Link>
 		</div>
